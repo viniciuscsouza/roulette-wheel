@@ -1,3 +1,4 @@
+var audio = new Audio("drum.mp3")
 var options = [
                 {
                   "name": "Artes",
@@ -169,6 +170,7 @@ function spin() {
   spinTime = 5;
   //spinTimeTotal = Math.random() * 10 + 10 * 1000;
   spinTimeTotal = Math.random() * 3 + 8 * 1000;
+  audio.play()
   rotateWheel();
 }
 
