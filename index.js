@@ -1,18 +1,78 @@
 var options = [
-                "Artes",
-                "Bebida",
-                "Carreira", 
-                "Cinema",
-                "Cozinha", 
-                "Esportes", 
-                "Família",
-                "Formação", 
-                "Games", 
-                "Idiomas",
-                "Leitura",
-                "Música",
-                "Natureza",
-                "Viagem",
+                {
+                  "name": "Artes",
+                  "icon": "🎨"
+                },
+                {
+                  "name": "Bebida",
+                  "icon": "🍹"
+                },
+                {
+                  "name": "Carreira",
+                  "icon": "🏦"
+                },
+                {
+                  "name": "Cinema",
+                  "icon": "🍿"
+                },
+                {
+                  "name": "Cozinha",
+                  "icon": "👩🏻‍🍳"
+                },
+                {
+                  "name": "Esporte",
+                  "icon": "⛹️"
+                },
+                {
+                  "name": "Família",
+                  "icon": "👨‍👩‍👧‍👦"
+                },
+                {
+                  "name": "Formação",
+                  "icon": "🎒"
+                },
+                {
+                  "name": "Games",
+                  "icon": "👾"
+                },
+                {
+                  "name": "Idiomas",
+                  "icon": "🗣️"
+                },
+                {
+                  "name": "Games",
+                  "icon": "👾"
+                },
+                {
+                  "name": "Leitura",
+                  "icon": "📖"
+                },
+                {
+                  "name": "Música",
+                  "icon": "🎵"
+                },
+                {
+                  "name": "Natureza",
+                  "icon": "🏞️"
+                },
+                {
+                  "name": "Viagem",
+                  "icon": "✈️"
+                },
+                //"🎨 Artes",
+                //"🍹 Bebida",
+                //"🏦 Carreira", 
+                //"🍿 Cinema",
+                //"👩🏻‍🍳 Cozinha", 
+                //"⛹️ Esportes", 
+                //"👨‍👩‍👧‍👦 Família",
+                //"🎒 Formação", 
+                //"👾 Games", 
+                //"🗣️ Idiomas",
+                //"📖 Leitura",
+                //"🎵 Música",
+                //"🏞️ Natureza",
+                //"✈️ Viagem",
               ];
 
 var startAngle = 0;
@@ -84,7 +144,7 @@ function drawRouletteWheel() {
       ctx.translate(250 + Math.cos(angle + arc / 2) * textRadius, 
                     250 + Math.sin(angle + arc / 2) * textRadius);
       ctx.rotate(angle + arc / 2 + Math.PI / 2);
-      var text = options[i];
+      var text = options[i].name;
       ctx.fillText(text, -ctx.measureText(text).width / 2, 0);
       ctx.restore();
     } 
@@ -132,6 +192,7 @@ function stopRotateWheel() {
   ctx.save();
   ctx.font = 'bold 30px Helvetica, Arial';
   var text = options[index]
+  text = text.icon + " " + text.name
   ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
   ctx.restore();
 }
