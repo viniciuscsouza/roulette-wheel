@@ -1,4 +1,4 @@
-var options = ["$100", "$10", "$25", "$250", "$30", "$1000", "$1", "$200", "$45", "$500", "$5", "$20", "Lose", "$1000000", "Lose", "$350", "$5", "$99"];
+var options = ["Categoria A", "Categoria B", "Categoria  C", "Categoria D", "Categoria E", "Categoria  F", "Lose"];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
