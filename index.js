@@ -1,4 +1,19 @@
-var options = ["Carreira", "Hobbies", "Esportes", "Formação", "Família", "Comida", "Bebida"];
+var options = [
+                "Artes",
+                "Bebida",
+                "Carreira", 
+                "Cinema",
+                "Cozinha", 
+                "Esportes", 
+                "Família",
+                "Formação", 
+                "Games", 
+                "Idiomas",
+                "Leitura",
+                "Música",
+                "Natureza",
+                "Viagem",
+              ];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
@@ -91,9 +106,9 @@ function drawRouletteWheel() {
 
 function spin() {
   spinAngleStart = Math.random() * 10 + 10;
-  spinTime = 0;
-  spinTimeTotal = Math.random() * 6 + 6 * 1000;
-  //spinTimeTotal = Math.random() * 3 + 4 * 1000;
+  spinTime = 5;
+  //spinTimeTotal = Math.random() * 10 + 10 * 1000;
+  spinTimeTotal = Math.random() * 3 + 8 * 1000;
   rotateWheel();
 }
 
