@@ -1,4 +1,5 @@
-var audio = new Audio("drum.mp3")
+var audio = new Audio("baucasapropria.mp3");
+
 var options = [
                 {
                   "name": "Artes",
@@ -30,7 +31,7 @@ var options = [
                 },
                 {
                   "name": "Formação",
-                  "icon": "🎒"
+                  "icon": "✍️"
                 },
                 {
                   "name": "Games",
@@ -39,10 +40,6 @@ var options = [
                 {
                   "name": "Idiomas",
                   "icon": "🗣️"
-                },
-                {
-                  "name": "Games",
-                  "icon": "👾"
                 },
                 {
                   "name": "Leitura",
@@ -87,6 +84,7 @@ var spinTimeTotal = 0;
 var ctx;
 
 document.getElementById("spin").addEventListener("click", spin);
+
 
 function byte2Hex(n) {
   var nybHexString = "0123456789ABCDEF";
@@ -166,11 +164,24 @@ function drawRouletteWheel() {
 }
 
 function spin() {
+
+  var isPlaying = audio.currentTime > 0 && !audio.paused && !audio.ended 
+    && audio.readyState > audio.HAVE_CURRENT_DATA;
+
+    if (!isPlaying) {
+      audio.play();
+    }
+
   spinAngleStart = Math.random() * 10 + 10;
-  spinTime = 5;
+  spinTime = 0;
   //spinTimeTotal = Math.random() * 10 + 10 * 1000;
-  spinTimeTotal = Math.random() * 3 + 8 * 1000;
-  audio.play()
+  spinTimeTotal = Math.random() * 20 + 20 * 1000;
+  //audio.play()
+  // audio.load()
+  // setInterval(function(){
+  //   audio.play();
+  // }, 0);
+  // audio.volume = 0.8;
   rotateWheel();
 }
 
@@ -193,10 +204,31 @@ function stopRotateWheel() {
   var index = Math.floor((360 - degrees % 360) / arcd);
   ctx.save();
   ctx.font = 'bold 30px Helvetica, Arial';
-  var text = options[index]
-  text = text.icon + " " + text.name
+  var text = options[index];
+  var musicText = text.name
+  text = text.icon + " " + text.name;
+  
+  audio.pause();
+  audio.currentTime = 0;
+
+  var audioSelection = new Audio(musicText + ".mp3")
+  setTimeout(function(){},1000)
+
+  var isPlaying = audioSelection.currentTime > 0 && !audioSelection.paused && !audioSelection.ended 
+    && audioSelection.readyState > audioSelection.HAVE_CURRENT_DATA;
+
+    if (!isPlaying) {
+      audioSelection.play();
+    }
+
+
+
   ctx.fillText(text, 250 - ctx.measureText(text).width / 2, 250 + 10);
   ctx.restore();
+  // audioSelection.pause();
+  // audioSelection.currentTime = 0;
+
+
 }
 
 function easeOut(t, b, c, d) {
