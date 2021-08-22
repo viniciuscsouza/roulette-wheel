@@ -1,4 +1,4 @@
-var options = ["Categoria A", "Categoria B", "Categoria  C", "Categoria D", "Categoria E", "Categoria  F", "Lose"];
+var options = ["Carreira", "Hobbies", "Esportes", "Formação", "Família", "Comida", "Bebida"];
 
 var startAngle = 0;
 var arc = Math.PI / (options.length / 2);
@@ -92,7 +92,8 @@ function drawRouletteWheel() {
 function spin() {
   spinAngleStart = Math.random() * 10 + 10;
   spinTime = 0;
-  spinTimeTotal = Math.random() * 3 + 4 * 1000;
+  spinTimeTotal = Math.random() * 5 + 5 * 1000;
+  //spinTimeTotal = Math.random() * 3 + 4 * 1000;
   rotateWheel();
 }
 
