@@ -1,2 +1,3 @@
 # roulette-wheel
-A JS Roulette Wheel
+
+[Uma Roleta feita em Javascript](http://roleta.surge.sh/)
